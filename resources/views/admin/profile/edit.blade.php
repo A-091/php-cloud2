@@ -6,7 +6,6 @@
             <div class="col-md-8 mx-auto">
 　　            <h2>プロフィールの編集</h2>
                 <form action="{{ action('Admin\ProfileController@update') }}" method="post" enctype="multipart/form-data">
-                   @csrf
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -23,18 +22,12 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="gender">性別</label>
                         <div class="col-md-10">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" value="male" @if (old('gender', $profile_form->gender) == "male") checked @endif>
-                                <label class="form-check-label">男性</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" value="female" @if (old('gender', $profile_form->gender) == "female") checked @endif>
-                                <label class="form-checke-label">女性</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" value="others" @if (old('gender', $profile_form->gender) == "others") checked @endif>
-                                <label  class="form-check-label">その他</label>
-                            </div>    
+                            <input type="radio" name="gender" value="{{ $profile_form->gender }}">男性
+                            <input type="radio" name="gender" value="{{ $profile_form->gender }}">女性
+                            <input type="radio" name="gender" value="{{ $profile_form->gender }}">その他
+                    <div class="form-group @if(!empty($errors->first('gender'))) has-error @endif">
+                                <span class="help-block">{{$errors->first('gender')}}</span>
+                    </div>    
                         </div>
                     </div>
                     <div class="form-group row">

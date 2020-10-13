@@ -20,12 +20,11 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-2" for=gender>性別</label>
+                    <label class="col-md-2" for="gender">性別</label>
                     <div class="col-md-10">
-                        <select class="form-control" name="gender">
-                            <option value="男性">男性</option>
-                            <option value="女性">女性</option>
-                        </select>    
+                            <input type="radio" name="gender" checked="checked" value="man">男性
+                            <input type="radio" name="gender" value="woman">女性
+                            <input type="radio" name="gender" value="others">その他
                     </div>
                 </div>
                 <div class="form-group row">

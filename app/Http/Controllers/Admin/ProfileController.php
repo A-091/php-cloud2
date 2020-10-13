@@ -22,7 +22,7 @@ class ProfileController extends Controller
         $profile->fill($form);
         $profile->save();
         
-        return redirect('admin/profile/create');
+        return redirect('admin/profile/');
     }
     public function edit(Request $request)
     {
@@ -38,7 +38,8 @@ class ProfileController extends Controller
         $profile = profile::find($request->id);
         $profile_form = $request->all();
         unset($profile_form['_token']);
-        $profile->fill($profile_form)->save();
+        $profile->fill($profile_form);
+        $profile->save();
         
         $profile_history = new ProfileHistory;
         $profile_history->profile_id = $profile->id;
@@ -54,14 +55,14 @@ class ProfileController extends Controller
             $posts = profile::where('title',$cond_title)->get();
     } else {
         $posts = profile::all();
-    }
-    return view('admin.profile.index',['posts' => $posts,'cond_title' => $cond_title]);
+    }    
+    return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
     public function delete(Request $request)
     {
         $profile = profile::find($request->id);
         $profile->delete();
-        return redirect('admin/profile');
+        return redirect('admin/profile/edit');
     }
 }
 
