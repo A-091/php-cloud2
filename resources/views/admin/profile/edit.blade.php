@@ -7,11 +7,11 @@
 　　            <h2>プロフィールの編集</h2>
                 <form action="{{ action('Admin\ProfileController@update') }}" method="post" enctype="multipart/form-data">
                     @if (count($errors) > 0)
-                        <ul>
-                            @foreach($errors->all() as $e)
-                            <li>{{ $e }}</li>
-                            @endforeach
-                        </ul>
+                    <ul>
+                        @foreach($errors->all() as $e)
+                        <li>{{ $e }}</li>
+                        @endforeach
+                    </ul>
                     @endif
                     <div class="form-group row">
                         <label class="col-md-2" for="name">氏名</label>
@@ -55,8 +55,8 @@
                         <h2>編集履歴</h2>
                         <ul class="list-group">
                             @if ($profile_form->profile_histories != NULL)
-                                @foreach ($profile_form->profile_histories as $profile_history)
-                                    <li class="list-group-item">{{ $profile_history->edited_at }}</li>
+                                @foreach ($profile_form->profile_histories as $history)
+                                <li class="list-group-item">{{ $history->edited_at }}</li>
                                 @endforeach
                             @endif 
                         </ul>
