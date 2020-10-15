@@ -25,7 +25,7 @@
                                     @foreach($posts as $profile)
                                     <tr>
                                         <th>{{ $profile->id }}</th>
-                                        <td>{{ str_limit($profile->name, 30) }}</td>
+                                        <td>{{ str_limit($profile->name, 20) }}</td>
                                         <td>{{ Str_limit($profile->gender, 10) }}</td>
                                         <td>{{ Str_limit($profile->hobby, 30) }}</td>
                                         <td>{{ Str_limit($profile->introduction, 100) }}</td>

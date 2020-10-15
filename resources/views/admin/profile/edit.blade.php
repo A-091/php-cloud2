@@ -22,13 +22,10 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="gender">性別</label>
                         <div class="col-md-10">
-                            <input type="radio" name="gender" value="{{ $profile_form->gender }}">男性
-                            <input type="radio" name="gender" value="{{ $profile_form->gender }}">女性
-                            <input type="radio" name="gender" value="{{ $profile_form->gender }}">その他
-                    <div class="form-group @if(!empty($errors->first('gender'))) has-error @endif">
-                                <span class="help-block">{{$errors->first('gender')}}</span>
-                    </div>    
-                        </div>
+                            <input type="radio" name="gender" value="man" {{ $profile_form->gender == "男性" ? 'checked="checked"' : ''}}>男性
+                            <input type="radio" name="gender" value="woman" {{ $profile_form->gender == "女性" ? 'checked="checked"' : ''}}>女性
+                            <input type="radio" name="gender" value="other" {{ $profile_form->gender == "その他" ? 'checked="checked"' : ''}}>その他
+                        </div>    
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="hobby">趣味</label>
